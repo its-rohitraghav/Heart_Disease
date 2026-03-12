@@ -49,7 +49,7 @@ print(df.info())
 # ===================== Visualization =====================
 import plotly.express as px
 import plotly.io as pio
-pio.renderers.default = "browser"
+# pio.renderers.default = "browser"
 
 corr = df.corr()['target'].drop('target').sort_values()
 
@@ -58,12 +58,12 @@ fig = px.bar(
     y=corr.values,
     title="Correlation of Features with Heart Disease"
 )
-fig.show()
+# fig.show()
 
-px.histogram(df, x='age', color='target').show()
-px.pie(df, names='target', title='Percentage of Heart Disease Classes').show()
-px.histogram(df, x='sex', color='target').show()
-px.histogram(df, x='cp', color='target').show()
+# px.histogram(df, x='age', color='target').show()
+# px.pie(df, names='target', title='Percentage of Heart Disease Classes').show()
+# px.histogram(df, x='sex', color='target').show()
+# px.histogram(df, x='cp', color='target').show()
 
 # ===================== Train Test Split =====================
 from sklearn.model_selection import train_test_split
@@ -181,5 +181,6 @@ print("Random Forest Accuracy:", accuracy_score(y_test, pred))
 
 with open('random.pkl', 'wb') as file:
     pickle.dump(best_rf, file)
+
 
 print("All models trained and saved successfully!")
